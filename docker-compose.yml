@@ -2,14 +2,18 @@ version: "3.5"
 
 services:
   ui:
-    build: ./ui
+    image: my-ui
     ports:
       - "8080:8000"
     depends_on:
       - api
+    deploy:
+      replicas: 1
   
   api:
-    build: ./api
+    image: my-api
     ports:
       - "8081:5000"
+    deploy:
+      replicas: 1
 
